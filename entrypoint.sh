@@ -1,11 +1,11 @@
 #!/bin/bash
 
 if [ $1 = "plan-cost" ]; then
-    terraform show -json plan.tfplan | jq -cf terraform.jq 
+    terraform show -json plan.tfplan | jq -cf /home/appuser/terraform.jq
     read -p "The information above will be sent to modules.tf to estimate the costs. Proceed [Y/n]? " -n 1 -r
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
-        terraform plan -out=plan.tfplan > /dev/null && terraform show -json plan.tfplan | jq -cf terraform.jq | curl -s -X POST -H "Content-Type: application/json" -d @- https://cost.modules.tf/
+        terraform plan -out=plan.tfplan > /dev/null && terraform show -json plan.tfplan | jq -cf /home/appuser/terraform.jq | curl -s -X POST -H "Content-Type: application/json" -d @- https://cost.modules.tf/
     fi
 
 else

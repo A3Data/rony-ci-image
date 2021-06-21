@@ -25,9 +25,9 @@ services:
     image:
       ratorres7/rony-ci-test:latest
     volumes:
-      - ./infrastructure:/infrastructure
+      - .:/project
       - ./iamlive_output:/home/appuser/output
-    working_dir: /infrastructure
+    working_dir: /project/infrastructure
     environment:
       - AWS_CSM_ENABLED=true
       - AWS_CSM_PORT=31000
