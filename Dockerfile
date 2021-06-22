@@ -44,6 +44,15 @@ COPY entrypoint.sh .
 RUN chown "appuser" "./entrypoint.sh"
 RUN chmod +x ./entrypoint.sh
 
+EXPOSE 10080
+
+ENV AWS_CSM_ENABLED=true
+ENV AWS_CSM_PORT=31000
+ENV AWS_CSM_HOST=127.0.0.1
+# ENV HTTP_PROXY=http://127.0.0.1:10080
+# ENV HTTPS_PROXY=http://127.0.0.1:10080
+# ENV AWS_CA_BUNDLE=/home/appuser/.iamlive/ca.pem
+
 USER "appuser"
 
 EXPOSE 10080

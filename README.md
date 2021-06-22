@@ -29,9 +29,6 @@ services:
       - ./iamlive_output:/home/appuser/output
     working_dir: /project/infrastructure
     environment:
-      - AWS_CSM_ENABLED=true
-      - AWS_CSM_PORT=31000
-      - AWS_CSM_HOST=127.0.0.1
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
