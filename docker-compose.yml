@@ -7,7 +7,6 @@ services:
       context: .
     volumes:
       - ./infrastructure:/infrastructure
-      - ./iamlive_output:/home/appuser/output
     working_dir: /infrastructure
     environment:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}

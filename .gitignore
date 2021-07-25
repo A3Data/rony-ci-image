@@ -1,2 +1,4 @@
 infrastructure/.terraform*
-iamlive_output
+infrastructure/policy.json
+infrastructure/plan.tfplan
+.env
