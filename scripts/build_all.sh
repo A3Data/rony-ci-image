@@ -1,5 +1,5 @@
-export DOCKERHUB_USER=ratorres7
-export DOCKERHUB_REPO=rony-ci-test
+export DOCKERHUB_USER=ronya3data
+export DOCKERHUB_REPO=rony-ci
 export RONY_CI_VERSION=0.0.1
 export IAMLIVE_VERSION=0.40.0
 

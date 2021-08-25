@@ -14,6 +14,8 @@ To use the image, just include the following `docker-compose.yml` and `Makefile`
 
 Instead of using the commands `terraform init`, `terraform apply`, etc.. you will use the commands specified on the Makefile `make tf-init`, `make tf-plan` etc.
 
+Your AWS credentials should defined as environment variables. If you need to run `make` with `sudo` you should include `-E` flag, so your environment variables can be passed to docker-compose.
+
 The permissions used will be displayed on the terminal and saved to the file `iamlive_output/policy.json`.
 
 ``` yml
@@ -23,11 +25,10 @@ services:
 
   rony-ci:
     image:
-      ratorres7/rony-ci-test:latest
+      ronya3data/rony-ci-test:0.0.1-terraform1.0.3
     volumes:
-      - .:/project
-      - ./iamlive_output:/home/appuser/output
-    working_dir: /project/infrastructure
+      - ./infrastructure:/infrastructure
+    working_dir: /infrastructure
     environment:
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
@@ -92,5 +93,4 @@ tf-workspace-prod:
 .PHONY: tf-plan-cost
 tf-plan-cost:
 	docker-compose run --rm rony-ci plan-cost
-
 ```

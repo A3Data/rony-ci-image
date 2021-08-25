@@ -6,6 +6,9 @@ ARG TERRAFORM_VERSION=1.0.3
 
 RUN apt update
 
+## Install general tools
+RUN apt-get -y install zip unzip
+
 ## Install aws cli
 RUN apt -y install python3 python3-pip wget
 RUN pip3 install awscli
