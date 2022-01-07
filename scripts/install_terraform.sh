@@ -1,4 +1,3 @@
-apt-get update && apt-get install -y gnupg software-properties-common curl
-curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
-apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-apt-get update && apt-get install terraform=$1
+wget https://releases.hashicorp.com/terraform/$1/terraform_$1_linux_amd64.zip
+unzip terraform_$1_linux_amd64.zip
+mv terraform /usr/local/bin/
